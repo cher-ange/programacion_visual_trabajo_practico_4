@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link data-th-rel="stylesheet"
+          data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+    <link data-th-rel="stylesheet"
+          data-th-href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css}">
+    <link rel="shortcut icon"
+          data-th-href="@{https://www.fca.unju.edu.ar/static/images/base/favicon-16x16.png}"
+          type="image/x-icon">
+    <title>Inicio - Facultad de Ciencias Agrarias</title>
+</head>
+<body>
+    <div class="container-fluid m-0 p-2 bg-light-subtle">
+        <!-- Header -->
+        <div class="p-2">
+            <header class="bg-success-subtle border border-success-subtle shadow rounded p-2 m-0">
+                <img class="d-block mx-auto img-fluid"
+                     data-th-src="@{https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b674371-0178-47a7-bf86-e9960c61f200/d9qda05-a960f789-5bdb-4802-8b48-911e1dd6809d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdiNjc0MzcxLTAxNzgtNDdhNy1iZjg2LWU5OTYwYzYxZjIwMFwvZDlxZGEwNS1hOTYwZjc4OS01YmRiLTQ4MDItOGI0OC05MTFlMWRkNjgwOWQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.CyiTzluz9oWO2FJPaqI1G_4dSKqaApw6X9yAy3EyLAI}" alt="Logo Facultad de Ciencias Agrarias">
+                <h1 class="text-center">Facultad de Ciencias Agrarias</h1>
+                <p class="text-center fst-italic">Flammam Tvam Hoc Foco Accende</p>
+            </header>
+        </div>
+
+        <!-- Nav -->
+        <div class="p-2">
+            <nav class="navbar navbar-expand-lg bg-primary-subtle border border-primary-subtle shadow rounded p-2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <img class="img-fluid" width="100" height="100"
+                             data-th-src="@{https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b674371-0178-47a7-bf86-e9960c61f200/d9qd9sk-765d8a44-c12f-4186-bfb2-6887a2ced4df.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdiNjc0MzcxLTAxNzgtNDdhNy1iZjg2LWU5OTYwYzYxZjIwMFwvZDlxZDlzay03NjVkOGE0NC1jMTJmLTQxODYtYmZiMi02ODg3YTJjZWQ0ZGYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.EBocdMmYakuEk3St49MMahWepFe0f2V4QgGrSRJ3vU8}" alt="Logo Facultad de Ciencias Agrarias">
+                             <span class="ps-2">Facultad de Ciencias Agrarias</span>
+                    </a>
+                    <button class="navbar-toggler" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-th-href="@{https://www.fca.unju.edu.ar/institucional/historia/}">Acerca de</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                   Carreras
+                                </a>
+                                <ul class="dropdown-menu bg-success-subtle">
+                                    <li><a class="dropdown-item"
+                                           data-th-href="@{https://www.fca.unju.edu.ar/oferta-academica/pregrado/}">
+                                           Pregrado
+                                        </a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                           data-th-href="@{https://www.fca.unju.edu.ar/oferta-academica/grado/}">
+                                           Grado
+                                        </a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                           data-th-href="@{https://www.fca.unju.edu.ar/oferta-academica/posgrado/}">
+                                           PosGrado
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-th-href="@{https://www.fca.unju.edu.ar/extension/noticias/}">Noticias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-th-href="@{https://www.fca.unju.edu.ar/institucional/contacto/}">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main content -->
+        <div class="p-2">
+            <div class="row bg-success-subtle border border-success-subtle shadow rounded p-2 m-0">
+                <!-- Aside -->
+                <div class="col-12 col-md-2 p-2">
+                    <aside class="d-flex flex-column bg-primary-subtle border border-primary-subtle p-3 rounded">
+                        <div class="align-self-center bg-success-subtle border border-success-subtle p-3 rounded">
+                            <img class="img-fluid" data-th-src="@{https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b674371-0178-47a7-bf86-e9960c61f200/d9qd92n-b8736b12-c3c0-4430-865f-9d446afa8b8b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdiNjc0MzcxLTAxNzgtNDdhNy1iZjg2LWU5OTYwYzYxZjIwMFwvZDlxZDkybi1iODczNmIxMi1jM2MwLTQ0MzAtODY1Zi05ZDQ0NmFmYThiOGIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.8_BwXgoXYKv-IQfLh4Y7zqqN3jFvGGGGRSOSaA3Euuk}" width="100" height="100" alt="">
+                            <h5 class="fw-bold text-center">Menú</h5>
+                        </div>
+                        <div class="list-group my-3">
+                            <a class="list-group-item list-group-item-action list-group-item-success"
+                               data-th-href="@{http://www.biblioteca.fca.unju.edu.ar/}"
+                               title="Ir a la biblioteca">
+                               Biblioteca
+                            </a>
+                            <a class="list-group-item list-group-item-action list-group-item-success"
+                               data-th-href="@{https://www.fca.unju.edu.ar/institucional/calendario/}"
+                               title="Ir al calendario académico">
+                               Calendario académico
+                            </a>
+                        </div>
+                        
+                    </aside>
+                </div>
+                <!-- Main -->
+                <div class="col-12 col-md-10 p-2">
+                    <main class="d-flex flex-column bg-primary-subtle border border-primary-subtle p-3 rounded">
+                        <!-- Brief description about the university -->
+                        <div class="row">
+                            <div class="col">
+                                <section class="bg-success-subtle border border-success-subtle p-3 rounded">
+                                    <h2>Historía</h2>
+                                    <blockquote class="text-muted">“Dentro de un concepto de productividad, las autoridades de la Facultad de Ciencias Agrarias de la UNJu, hace Medio Siglo, pusieron Semillas de Calidad en una Fértil Tierra Jujeña, las que se fueron multiplicando a lo largo de todos estos años, manteniendo su Pureza y Poder germinativo que nunca decaiga y continúe por siempre con su potente vigor en las sucesivas generaciones”.</blockquote>
+                                    <footer class="fst-italic">Ing. Agr. Sara Quintana</footer>
+                                </section>
+                            </div>
+                        </div>
+                        <!-- News -->
+                        <div class="row mt-3">
+                            <div class="col">
+                                <section class="bg-success-subtle border border-success-subtle p-3 rounded">
+                                    <h2>Últimas noticias</h2>
+                                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 px-2">
+                                        <div class="col p-2">
+                                            <div class="card bg-primary-subtle border border-primary-subtle h-100">
+                                                <img class="card-img rounded-bottom-0 border-0" data-th-src="@{https://www.fca.unju.edu.ar/media/noticia/noti_52_aniversario_fca_wbgCCge.jpg}" style="height: 10rem; object-fit: cover">
+                                                <div class="card-body border-top border-primary-subtle p-2">
+                                                    <small class="fw-bold text-muted">24 Mayo 2024</small>
+                                                    <p class="fw-bold">¡Felices 52 años!</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col p-2">
+                                            <div class="card bg-primary-subtle border border-primary-subtle h-100">
+                                                <img class="card-img rounded-bottom-0 border-0" data-th-src="@{https://www.fca.unju.edu.ar/media/noticia/flyer_pagina_diplomatura_cultivo_andinos_uso_consumo_2024_nuevas_fechas.jpg}" style="height: 10rem; object-fit: cover">
+                                                <div class="card-body border-top border-primary-subtle p-2">
+                                                    <small class="fw-bold text-muted">24 Mayo 2024</small>
+                                                    <p class="fw-bold">Extienden fechas de inscripción para la diplomatura en cultivos andinos, uso y consumo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col p-2">
+                                            <div class="card bg-primary-subtle border border-primary-subtle h-100">
+                                                <img class="card-img rounded-bottom-0 border-0" data-th-src="@{https://www.fca.unju.edu.ar/media/noticia/WhatsApp_Image_2024-05-23_at_12.51.12.jpeg}" style="height: 10rem; object-fit: cover">
+                                                <div class="card-body border-top border-primary-subtle p-2">
+                                                    <small class="fw-bold text-muted">23 Mayo 2024</small>
+                                                    <p class="fw-bold">Brindaron jornadas de almácigos a estudiantes de Primaria</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col p-2">
+                                            <div class="card bg-primary-subtle border border-primary-subtle h-100">
+                                                <img class="card-img rounded-bottom-0 border-0" data-th-src="@{https://www.fca.unju.edu.ar/media/noticia/communicado_importante_noticias_1.png}" style="height: 10rem; object-fit: cover"> 
+                                                <div class="card-body border-top border-primary-subtle p-2">
+                                                    <small class="fw-bold text-muted">22 Mayo 2024</small>
+                                                    <p class="fw-bold">Actividades en Agrarias para el 23 de mayo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col p-2">
+                                            <div class="card bg-primary-subtle border border-primary-subtle h-100">
+                                                <img class="card-img rounded-bottom-0 border-0" data-th-src="@{https://www.fca.unju.edu.ar/media/noticia/WhatsApp_Image_2024-05-21_at_10.43.20.jpeg}" style="height: 10rem; object-fit: cover">
+                                                <div class="card-body border-top border-primary-subtle p-2">
+                                                    <small class="fw-bold text-muted">21 Mayo 2024</small>
+                                                    <p class="fw-bold">Becas Belgrano: Acreditan la 1ra cuota para renovantes y habilitan resultados para nuevos postulantes</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col p-2">
+                                            <div class="card bg-primary-subtle border border-primary-subtle h-100">
+                                                <img class="card-img rounded-bottom-0 border-0" data-th-src="@{https://www.fca.unju.edu.ar/media/noticia/consejo_social_unju.jpg}" style="height: 10rem; object-fit: cover">
+                                                <div class="card-body border-top border-primary-subtle p-2">
+                                                    <small class="fw-bold text-muted">17 Mayo 2024</small>
+                                                    <p class="fw-bold">Consejo Social de la UNJu informó sobre la situación actual de la institución</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="p-2">
+            <footer class="bg-primary-subtle border border-primary-subtle shadow rounded p-2 m-0">
+                <div class="row m-0">
+                    <!-- Contact information -->
+                    <div class="col-sm-12 col-md-6 p-3 d-flex flex-column row-gap-2">
+                        <div class="p-2 bg-success-subtle border border-success-subtle rounded">
+                            <h5 class="mb-0">Información de contacto</h5>
+                        </div>
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                <div class="d-flex align-items-baseline justify-content-between column-gap-2">
+                                    <h6 class="mb-0 fw-bold">Dirección</h6>
+                                    <small>DTA, Juan Bautista Alberdi N.º 47, Y4600 San Salvador de Jujuy, Jujuy</small>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                <div class="d-flex align-items-baseline justify-content-between column-gap-2">
+                                    <h6 class="mb-0 fw-bold">Teléfono</h6>
+                                    <small>(0388) 586-0088</small>
+                                </div>
+                            </a>
+                            <a href="mailto:administracion@fca.unju.edu.ar" class="list-group-item list-group-item-action list-group-item-success">
+                                <div class="d-flex align-items-baseline justify-content-between column-gap-2">
+                                    <h6 class="mb-0 fw-bold">Correo eléctronico</h6>
+                                    <small>administracion@fca.unju.edu.ar</small>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <!-- Social media links -->
+                    <div class="col-4 col-md-2 p-3 d-flex flex-column gap-2 text-center">
+                        <div class="p-2 bg-success-subtle border border-success-subtle rounded">
+                            <h5 class="mb-0">Redes sociales</h5>
+                        </div>
+                        <ul class="list-group">
+                            <a data-th-href="@{https://x.com/fca_unju/}" class="list-group-item list-group-item-action list-group-item-success">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a data-th-href="@{https://www.facebook.com/FCAUNJu.Arg}" class="list-group-item list-group-item-action list-group-item-success">
+                                <i class="bi bi-facebook"></i>
+                            </a>                        
+                            <a data-th-href="@{https://www.instagram.com/fca_unju/}" class="list-group-item list-group-item-action list-group-item-success">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a data-th-href="@{https://www.youtube.com/c/FacultaddeCienciasAgrariasUNJujuy}" class="list-group-item list-group-item-action list-group-item-success">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        </ul>
+                    </div>
+                    <!-- Copyright -->
+                    <div class="col-8 col-md-4 p-3 d-flex flex-column row-gap-2">
+                        <div class="p-2 bg-success-subtle border border-success-subtle rounded">
+                        <h5 class="mb-0">Derechos de autor</h5>
+                        </div>
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                <div class="d-flex flex-column justify-content-between column-gap-2">
+                                    <h6 class="mb-0 fw-bold"><span class="pe-1">&copy;</span>Gutierrez Angel Gonzalo</h6>
+                                    <small>2024 - Jujuy - Argentina</small>
+                                </div>  
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
