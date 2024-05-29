@@ -1,10 +1,11 @@
 package ar.edu.unju.fi.model;
 
-/** 
+/**
  * @author Gutierrez Angel Gonzalo
  * @version 1.0
  */
 public class Subject {
+
     private Integer code;
     private String name;
     private String course;
@@ -16,13 +17,14 @@ public class Subject {
     public Subject() {
     }
 
-    public Subject(Integer code,
-                   String name,
-                   String course,
-                   Integer duration,
-                   AttendanceType attendanceType,
-                   Teacher teacher,
-                   Career career) {
+    public Subject(
+            Integer code,
+            String name,
+            String course,
+            Integer duration,
+            AttendanceType attendanceType,
+            Teacher teacher,
+            Career career) {
         this.code = code;
         this.name = name;
         this.course = course;
@@ -35,35 +37,35 @@ public class Subject {
     public Integer getCode() {
         return code;
     }
-    
+
     public void setCode(Integer code) {
         this.code = code;
     }
-    
+
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public String getCourse() {
         return course;
     }
-    
+
     public void setCourse(String course) {
         this.course = course;
     }
-    
+
     public Integer getDuration() {
         return duration;
     }
-    
+
     public void setDuration(Integer duration) {
         this.duration = duration;
     }
-    
+
     public Teacher getTeacher() {
         return teacher;
     }

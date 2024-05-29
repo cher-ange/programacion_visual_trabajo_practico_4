@@ -2,11 +2,12 @@ package ar.edu.unju.fi.model;
 
 import java.time.LocalDate;
 
-/** 
+/**
  * @author Gutierrez Angel Gonzalo
  * @version 1.0
  */
 public class Student {
+
     private String identification;
     private String name;
     private String lastName;
@@ -19,14 +20,15 @@ public class Student {
     public Student() {
     }
 
-    public Student(String identification,
-                   String name,
-                   String lastName,
-                   String email,
-                   String phone,
-                   LocalDate birthdate,
-                   String address,
-                   String universityRecord) {
+    public Student(
+            String identification,
+            String name,
+            String lastName,
+            String email,
+            String phone,
+            LocalDate birthdate,
+            String address,
+            String universityRecord) {
         this.identification = identification;
         this.name = name;
         this.lastName = lastName;
