@@ -1,24 +1,26 @@
 package ar.edu.unju.fi.model;
 
-/** 
+/**
  * @author Gutierrez Angel Gonzalo
  * @version 1.0
  */
 public class Teacher {
+
     private String file;
     private String name;
     private String lastName;
     private String email;
     private String phone;
-    
+
     public Teacher() {
     }
 
-    public Teacher(String file,
-                   String name,
-                   String lastName,
-                   String email,
-                   String phone) {
+    public Teacher(
+            String file,
+            String name,
+            String lastName,
+            String email,
+            String phone) {
         this.file = file;
         this.name = name;
         this.lastName = lastName;
@@ -64,5 +66,5 @@ public class Teacher {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }    
+    }
 }

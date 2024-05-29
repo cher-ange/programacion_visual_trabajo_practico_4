@@ -1,12 +1,12 @@
 package ar.edu.unju.fi.model;
 
-/** 
+/**
  * @author Gutierrez Angel Gonzalo
  * @version 1.0
  */
 public enum AttendanceType {
-    VIRTUAL ("Virtual"),
-    IN_PERSON ("In person");
+    VIRTUAL("Virtual"),
+    IN_PERSON("In person");
 
     private final String value;
 

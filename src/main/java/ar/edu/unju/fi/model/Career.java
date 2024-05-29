@@ -1,22 +1,27 @@
 package ar.edu.unju.fi.model;
 
-/** 
+import org.springframework.stereotype.Component;
+
+/**
  * @author Gutierrez Angel Gonzalo
  * @version 1.0
  */
+@Component
 public class Career {
+
     private Integer code;
     private String name;
     private Integer duration;
     private Boolean state;
-    
+
     public Career() {
     }
 
-    public Career(Integer code,
-                  String name,
-                  Integer duration,
-                  Boolean state) {
+    public Career(
+            Integer code,
+            String name,
+            Integer duration,
+            Boolean state) {
         this.code = code;
         this.name = name;
         this.duration = duration;
