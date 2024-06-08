@@ -2,20 +2,25 @@ package ar.edu.unju.fi.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
+
 /**
  * @author Gutierrez Angel Gonzalo
  * @version 1.0
  */
+@Component
 public class Student {
-
     private String identification;
     private String name;
     private String lastName;
     private String email;
     private String phone;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthdate;
     private String address;
     private String universityRecord;
+    private Boolean state = true;
 
     public Student() {
     }
@@ -28,7 +33,9 @@ public class Student {
             String phone,
             LocalDate birthdate,
             String address,
-            String universityRecord) {
+            String universityRecord,
+            Boolean state) {
+
         this.identification = identification;
         this.name = name;
         this.lastName = lastName;
@@ -37,6 +44,7 @@ public class Student {
         this.birthdate = birthdate;
         this.address = address;
         this.universityRecord = universityRecord;
+        this.state = state;
     }
 
     public String getIdentification() {
@@ -101,5 +109,20 @@ public class Student {
 
     public void setUniversityRecord(String universityRecord) {
         this.universityRecord = universityRecord;
+    }
+
+    public Boolean getState() {
+        return state;
+    }
+
+    public void setState(Boolean state) {
+        this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [identification=" + identification + ", name=" + name + ", lastName=" + lastName + ", email="
+                + email + ", phone=" + phone + ", birthdate=" + birthdate + ", address=" + address
+                + ", universityRecord=" + universityRecord + ", state=" + state + "]";
     }
 }

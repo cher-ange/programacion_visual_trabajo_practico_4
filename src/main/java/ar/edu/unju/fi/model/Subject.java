@@ -1,30 +1,35 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author Gutierrez Angel Gonzalo
  * @version 1.0
  */
+@Component
 public class Subject {
 
-    private Integer code;
+    private String code;
     private String name;
     private String course;
     private Integer duration;
     private AttendanceType attendanceType;
     private Teacher teacher;
     private Career career;
+    private Boolean state = true;
 
     public Subject() {
     }
 
     public Subject(
-            Integer code,
+            String code,
             String name,
             String course,
             Integer duration,
             AttendanceType attendanceType,
             Teacher teacher,
-            Career career) {
+            Career career,
+            Boolean state) {
         this.code = code;
         this.name = name;
         this.course = course;
@@ -32,13 +37,14 @@ public class Subject {
         this.attendanceType = attendanceType;
         this.teacher = teacher;
         this.career = career;
+        this.state = state;
     }
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -88,5 +94,20 @@ public class Subject {
 
     public void setAttendanceType(AttendanceType attendanceType) {
         this.attendanceType = attendanceType;
+    }
+
+    public Boolean getState() {
+        return state;
+    }
+
+    public void setState(Boolean state) {
+        this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "Subject [code=" + code + ", name=" + name + ", course=" + course + ", duration=" + duration
+                + ", attendanceType=" + attendanceType + ", teacher=" + teacher + ", career=" + career + ", state="
+                + state + "]";
     }
 }

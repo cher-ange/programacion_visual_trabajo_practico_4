@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <th-block data-th-replace="~{layout/common :: head (title='Administrar Estudiante')}"></th-block>
+<body>
+    <!-- Header -->
+    <th-block data-th-replace="~{layout/header :: header}"></th-block>
+
+    <!-- Nav -->
+    <th-block data-th-replace="~{layout/nav :: nav}"></th-block>
+    
+    <!-- Main -->
+    <div class="p-2">
+        <div class="row mx-0">
+            <!-- Header -->
+            <div class="col-12
+                        bg-body-tertiary
+                        border border-bottom-0
+                        rounded rounded-bottom-0
+                        p-2">
+                <h2 class="text-center
+                           mb-0"
+                    data-th-text="${allowEditing} ? 'Modificar estudiante' : 'Agregar estudiante'">
+                </h2>
+            </div>
+
+            <!-- Add/Modify Student -->
+            <div class="col
+                        bg-light-subtle
+                        border
+                        rounded rounded-top-0
+                        p-2">
+
+                <!-- Form -->
+                <form method="post"
+                      data-th-action="@{${allowEditing} ? '/student/modify' : '/student/save'}"
+                      data-th-object="${studentSubmitted}">
+                    <div class="row mx-0 g-2">
+
+                        <!-- Identification -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="identification">DNI</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                                <input type="text" name="identification" id="identification"
+                                       data-th-class="${allowEditing} ? 'form-control bg-body-secondary' : 'form-control'"
+                                       data-th-field="*{identification}"
+                                       data-th-readonly="${allowEditing}">
+                            </div>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="name">Nombre</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-body-text"></i></span>
+                                <input class="form-control" type="text" name="name" id="name"
+                                       data-th-field="*{name}">
+                            </div>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="last-name">Apellido</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-body-text"></i></span>
+                                <input class="form-control" type="text" name="last-name" id="last-name"
+                                       data-th-field="*{lastName}">
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="email">Correo electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-mailbox"></i></span>
+                                <input class="form-control" type="email" name="email" id="email"
+                                       data-th-field="*{email}">
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="phone">Teléfono</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                <input class="form-control" type="tel" name="phone" id="phone"
+                                       data-th-field="*{phone}">
+                            </div>
+                        </div>
+
+                        <!-- Birthdate -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="birthdate">Fecha de nacimiento</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                                <input class="form-control" type="date" name="birthdate" id="birthdate"
+                                       data-th-field="*{birthdate}">
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="address">Dirección</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-bookmark"></i></span>
+                                <input class="form-control" type="text" name="address" id="address"
+                                       data-th-field="*{address}">
+                            </div>
+                        </div>
+
+                        <!-- University Record -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="university-record">Libreta Universitaria</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-archive"></i></span>
+                                <input class="form-control" type="text" name="university-record" id="university-record"
+                                       data-th-field="*{universityRecord}">
+                            </div>
+                        </div>
+
+                        <!-- State -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-check-label" for="state" hidden>Estado</label>
+                            <input type="hidden" name="state" id="state"
+                                    class="form-check-input"
+                                    data-th-field="*{state}">
+                        </div>
+
+                        <!-- Submit-Cancel buttons -->
+                        <div class="col-12 d-flex justify-content-start column-gap-2 mt-3">
+                            <button class="btn btn-light border border-secondary-subtle text-primary shadow" type="submit"
+                                    data-th-text="${allowEditing} ? 'Modificar' : 'Agregar'">>
+                            </button>
+                            <a class="btn btn-light border border-secondary-subtle shadow" role="button"
+                                data-th-href="@{'/student/list'}">
+                                Volver
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <th-block data-th-replace="~{layout/footer :: footer}"></th-block>
+</body>
+</html>

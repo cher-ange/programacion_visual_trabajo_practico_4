@@ -6,7 +6,7 @@ package ar.edu.unju.fi.model;
  */
 public enum AttendanceType {
     VIRTUAL("Virtual"),
-    IN_PERSON("In person");
+    IN_PERSON("Presencial");
 
     private final String value;
 

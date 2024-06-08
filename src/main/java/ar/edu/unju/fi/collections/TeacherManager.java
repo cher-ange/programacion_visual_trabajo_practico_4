@@ -11,56 +11,68 @@ public class TeacherManager {
 
     private static final List<Teacher> teachers = new ArrayList<>();
 
-    public List<Teacher> getAll() {
+    static {
         teachers.add(
-                new Teacher(
-                        "001",
-                        "NombreProfesorUno",
-                        "ApellidoProfesorUno",
-                        "EmailProfesorUno",
-                        "3880000000"));
+            new Teacher(
+                "001",
+                "NombreProfesorUno",
+                "ApellidoProfesorUno",
+                "EmailProfesorUno",
+                "3880000000",
+                true));
         teachers.add(
-                new Teacher(
-                        "002",
-                        "NombreProfesorDos",
-                        "ApellidoProfesorDos",
-                        "EmailProfesorDos",
-                        "3880000001"));
+            new Teacher(
+                "002",
+                "NombreProfesorDos",
+                "ApellidoProfesorDos",
+                "EmailProfesorDos",
+                "3880000001",
+                true));
         teachers.add(
-                new Teacher(
-                        "003",
-                        "NombreProfesorTres",
-                        "ApellidoProfesorTres",
-                        "EmailProfesorTres",
-                        "3880000002"));
+            new Teacher(
+                "003",
+                "NombreProfesorTres",
+                "ApellidoProfesorTres",
+                "EmailProfesorTres",
+                "3880000002",
+                true));
+        teachers.add(
+            new Teacher(
+                "004",
+                "NombreProfesorCuatro",
+                "ApellidoProfesorCuatro",
+                "EmailProfesorCuatro",
+                "3880000003",
+                true));
+    }
 
+    public static List<Teacher> getAll() {
+        // return teachers.stream().filter(t -> t.getState().equals(true)).toList();
         return teachers;
     }
 
-    public Optional<Teacher> search(String file) {
-        Predicate<Teacher> teacherByFile = teacher -> teacher.getFile().equals(file);
-        return teachers.stream().filter(teacherByFile).findAny();
+    public static Optional<Teacher> search(String file) {
+        return teachers.stream().filter(teacher -> teacher.getFile().equals(file)).findFirst();
     }
 
     public static void add(Teacher teacher) {
         teachers.add(teacher);
     }
 
-    public void modify(Teacher teacher) {
+    public static void modify(Teacher teacher) {
         Optional<Teacher> optionalTeacher = search(teacher.getFile());
 
         if (optionalTeacher.isPresent()) {
-            optionalTeacher.get().setName(teacher.getName());
-            optionalTeacher.get().setLastName(teacher.getLastName());
-            optionalTeacher.get().setEmail(teacher.getEmail());
-            optionalTeacher.get().setPhone(teacher.getPhone());
+            teachers.set(teachers.indexOf(optionalTeacher.get()), teacher);
         }
     }
 
-    public void delete(Teacher teacher) {
-        Optional<Teacher> optionalTeacher = search(teacher.getFile());
+    public static void delete(String file) {
+        Optional<Teacher> optionalTeacher = search(file);
+
         if (optionalTeacher.isPresent()) {
-            teachers.remove(optionalTeacher.get());
+            optionalTeacher.get().setState(false);
+            teachers.set(teachers.indexOf(optionalTeacher.get()), optionalTeacher.get());
         }
     }
 }
