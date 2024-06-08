@@ -3,59 +3,66 @@ package ar.edu.unju.fi.collections;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-
 import ar.edu.unju.fi.model.Career;
 
 public class CareerManager {
 
     private static final List<Career> careers = new ArrayList<>();
 
-    public static List<Career> getAll() {
+    static {
         careers.add(
-                new Career(
-                        1,
-                        "MateriaUno",
-                        2,
-                        true));
+            new Career(
+                "001",
+                "Ingeniero/a Agrónomo",
+                5,
+                true));
         careers.add(
-                new Career(
-                        2,
-                        "MateriaDos",
-                        3,
-                        true));
+            new Career(
+                "002",
+                "Licenciado/a en Ciencias Biológicas",
+                5 ,
+                true));
         careers.add(
-                new Career(
-                        3,
-                        "MateriaTres",
-                        4,
-                        true));
+            new Career(
+                "003",
+                "Técnico/a Universtario en Producción Lechera",
+                2,
+                true));
+        careers.add(
+            new Career(
+                "004",
+                "Técnico/a Universitario en Mecanización Agrícola",
+                2,
+                true));
+    }
+
+    public static List<Career> getAll() {    
+        // return careers.stream().filter(c -> c.getState().equals(true)).toList();
         return careers;
     }
 
-    public static Optional<Career> search(int code) {
-        Predicate<Career> careerByCode = career -> career.getCode().equals(code);
-        return careers.stream().filter(careerByCode).findAny();
+    public static Optional<Career> search(String code) {
+        return careers.stream().filter(career -> career.getCode().equals(code)).findFirst();
     }
 
-    public static void Add(Career career) {
+    public static void add(Career career) {
         careers.add(career);
     }
 
     public static void modify(Career career) {
         Optional<Career> optionalCareer = search(career.getCode());
-
+        
         if (optionalCareer.isPresent()) {
-            optionalCareer.get().setName(career.getName());
-            optionalCareer.get().setDuration(career.getDuration());
-            optionalCareer.get().setState(career.getState());
-        }
+            int indexOfCareerFound = careers.indexOf(optionalCareer.get());
+            careers.set(indexOfCareerFound, career);
+        }   
     }
 
-    public static void delete(int id) {
-        Optional<Career> optionalCareer = search(id);
+    public static void delete(String code) {
+        Optional<Career> optionalCareer = search(code);
         if (optionalCareer.isPresent()) {
-            careers.remove(optionalCareer.get());
+            optionalCareer.get().setState(false);
+            careers.set(careers.indexOf(optionalCareer.get()), optionalCareer.get());
         }
     }
 }

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<th-block data-th-replace="~{layout/common :: head (title='Carreras')}"></th-block>
+
+<body>
+    <!-- Header -->
+    <th-block data-th-replace="~{layout/header :: header}"></th-block>
+
+    <!-- Nav -->
+    <th-block data-th-replace="~{layout/nav :: nav}"></th-block>
+
+    <!-- Main -->
+    <div class="p-2">
+
+        <!-- Empty list -->
+        <div class="row
+                    mx-0"
+             data-th-if="${#lists.isEmpty(listOfCareers)}">
+            <div class="col
+                        bg-body-tertiary
+                        border
+                        rounded
+                        p-2">
+                <div class="d-flex justify-content-center align-items-center
+                            column-gap-4">
+                    <h2 class="text-black
+                               mb-0">
+                        No se encuentran carreras registradas
+                    </h2>
+                    <a class="btn btn-light border border-secondary-subtle shadow" role="button"
+                       data-th-href="@{/career/add}">
+                        Agregar carrera
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row
+                    mx-0"
+             data-th-unless="${#lists.isEmpty(listOfCareers)}">
+            <!-- Title -->
+            <div class="col-12
+                        bg-body-tertiary
+                        border border-bottom-0
+                        rounded rounded-bottom-0
+                        p-2">
+                <div class="d-flex justify-content-center align-items-center
+                            column-gap-4">
+                    <h2 class="text-black
+                               mb-0">
+                        Lista de carreras
+                    </h2>
+                    <a class="btn btn-light border border-secondary-subtle link-primary shadow" role="button"
+                       data-th-href="@{/career/add}">
+                       Agregar carrera
+                    </a>
+                </div>
+            </div>
+            <!-- List of Students -->
+            <div class="col-12
+                        bg-light-subtle
+                        border
+                        rounded rounded-top-0
+                        p-2">
+                <div class="row mx-0">
+                    <!-- Careers -->
+                    <th-block data-th-each="career : ${listOfCareers}">
+                        <div class="col-12 col-md-6 col-lg-3 p-2">
+                            <div class="card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <p class="mb-0">
+                                        Código:
+                                        <span class="ps-1 text-muted"
+                                              data-th-text="${career.code}">
+                                        </span>
+                                    </p>
+                                    <p class="mb-0">
+                                        Estado:
+                                        <span class="ps-1 text-muted">
+                                            <i data-th-class="${career.state} ? 'bi bi-check text-success' : 'bi bi-x text-danger'"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                                <img class="bg-light object-fit-none"
+                                    data-th-src="@{https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c768d84f-d0cd-4d7d-bdd3-10b18e915257/dc58vd1-72aa5cb1-8bfa-47c0-aa17-6b6e353e9497.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M3NjhkODRmLWQwY2QtNGQ3ZC1iZGQzLTEwYjE4ZTkxNTI1N1wvZGM1OHZkMS03MmFhNWNiMS04YmZhLTQ3YzAtYWExNy02YjZlMzUzZTk0OTcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QvUcR_bS6fJS5XYxJJ9_0gPGHc2fEdBhLxMwRZqCNsI}"
+                                    alt="...">
+                                <div class="card-body bg-light">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Nombre</small>
+                                            <h6 class="mb-0" data-th-text="${career.name}"></h6>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Duración (años)</small>
+                                            <h6 class="mb-0" data-th-text="${career.duration}"></h6>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer d-flex justify-content-center align-content-center column-gap-2">
+                                    <a class="btn btn-light border border-secondary-subtle shadow" role="button"
+                                       data-th-href="@{/career/modify/__${career.code}__}">
+                                       Modificar
+                                    </a>
+                                    <a class="btn btn-light border border-secondary-subtle link-danger shadow" role="button"
+                                       data-th-href="@{/career/delete/__${career.code}__}">
+                                       Eliminar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </th-block>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <th-block data-th-replace="~{layout/footer :: footer}"></th-block>
+</body>
+
+</html>

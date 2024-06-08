@@ -14,10 +14,10 @@ public class SubjectManager {
 
     private static final List<Subject> subjects = new ArrayList<>();
 
-    public static List<Subject> getAll() {
+    static {
         subjects.add(
                 new Subject(
-                        1,
+                        "001",
                         "MateriaUno",
                         "CursoUno",
                         3,
@@ -27,19 +27,17 @@ public class SubjectManager {
                                 "NombreProfesorUno",
                                 "ApellidoProfesorUno",
                                 "EmailProfesorUno",
-                                "3880000000"
-                        ),
+                                "3880000000",
+                                true),
                         new Career(
-                                1,
+                                "001",
                                 "NombreCarreraUno",
                                 3,
-                                true
-                        )
-                )
-        );
+                                true),
+                        true));
         subjects.add(
                 new Subject(
-                        2,
+                        "002",
                         "MateriaDos",
                         "CursoDos",
                         4,
@@ -49,19 +47,17 @@ public class SubjectManager {
                                 "NombreProfesorDos",
                                 "ApellidoProfesorDos",
                                 "EmailProfesorDos",
-                                "3880000001"
-                        ),
+                                "3880000001",
+                                true),
                         new Career(
-                                2,
+                                "002",
                                 "NombreCarreraDos",
                                 4,
-                                true
-                        )
-                )
-        );
+                                true),
+                        true));
         subjects.add(
                 new Subject(
-                        3,
+                        "003",
                         "MateriaTres",
                         "CursoTres",
                         5,
@@ -71,46 +67,64 @@ public class SubjectManager {
                                 "NombreProfesorTres",
                                 "ApellidoProfesorTres",
                                 "EmailProfesorTres",
-                                "3880000002"
-                        ),
+                                "3880000002",
+                                true),
                         new Career(
-                                3,
+                                "003",
                                 "NombreCarreraTres",
                                 5,
-                                true
-                        )
-                )
-        );
+                                true),
+                        true));
+    }
 
+    public static List<Subject> getAll() {
+        // return subjects.stream().filter(subject -> subject.getState().equals(true)).toList();
         return subjects;
     }
 
-    public static Optional<Subject> search(int code) {
-        Predicate<Subject> subjectByCode = subject -> subject.getCode().equals(code);
-        return subjects.stream().filter(subjectByCode).findAny();
+    public static Optional<Subject> search(String code) {
+        return subjects.stream().filter(subject -> subject.getCode().equals(code)).findFirst();
     }
 
     public static void add(Subject subject) {
+        Optional<Teacher> optionalTeacher = TeacherManager.search(subject.getTeacher().getFile());
+        Optional<Career> optionalCareer = CareerManager.search(subject.getCareer().getCode());
+
+        if (optionalTeacher.isPresent()) {
+            subject.setTeacher(optionalTeacher.get());
+        }
+
+        if (optionalCareer.isPresent()) {
+            subject.setCareer(optionalCareer.get());
+        }
+
         subjects.add(subject);
     }
 
     public static void modify(Subject subject) {
         Optional<Subject> optionalSubject = search(subject.getCode());
+        Optional<Teacher> optionalTeacher = TeacherManager.search(subject.getTeacher().getFile());
+        Optional<Career> optionalCareer = CareerManager.search(subject.getCareer().getCode());
 
         if (optionalSubject.isPresent()) {
-            optionalSubject.get().setName(subject.getName());
-            optionalSubject.get().setCourse(subject.getCourse());
-            optionalSubject.get().setDuration(subject.getDuration());
-            optionalSubject.get().setAttendanceType(subject.getAttendanceType());
-            optionalSubject.get().setTeacher(subject.getTeacher());
-            optionalSubject.get().setCareer(subject.getCareer());
+            
+            if (optionalTeacher.isPresent()) {
+                subject.setTeacher(optionalTeacher.get());
+            }
+
+            if (optionalCareer.isPresent()) {
+                subject.setCareer(optionalCareer.get());
+            }
+
+            subjects.set(subjects.indexOf(optionalSubject.get()), subject);
         }
     }
 
-    public static void delete(int code) {
+    public static void delete(String code) {
         Optional<Subject> optionalSubject = search(code);
         if (optionalSubject.isPresent()) {
-            subjects.remove(optionalSubject.get());
+            optionalSubject.get().setState(false);
+            subjects.set(subjects.indexOf(optionalSubject.get()), optionalSubject.get());
         }
     }
 }

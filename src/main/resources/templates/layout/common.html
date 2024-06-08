@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!-- Head -->
 <th-block data-th-fragment="head (title)">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link data-th-rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
         <link data-th-rel="stylesheet"
-            data-th-href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css}">
-        <link rel="shortcut icon" data-th-href="@{https://www.fca.unju.edu.ar/static/images/base/favicon-16x16.png}"
-            type="image/x-icon">
+              data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+        <link data-th-rel="stylesheet"
+              data-th-href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css}">
+        <link rel="shortcut icon"
+              type="image/x-icon"
+              data-th-href="@{https://www.fca.unju.edu.ar/static/images/base/favicon-16x16.png}">
         <title data-th-text="${title}"></title>
     </head>
 </th-block>
-<body>
-    <th-block data-th-fragment="script">
-        <script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
-    </th-block>
-</body>
-</html>
+
+<!-- Script -->
+<th-block data-th-fragment="script">
+    <script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</th-block>
