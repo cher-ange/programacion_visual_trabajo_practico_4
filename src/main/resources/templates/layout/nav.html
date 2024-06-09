@@ -1,0 +1,89 @@
+<!-- Nav -->
+<th-block data-th-fragment="nav">
+    <div class="p-2">
+        <nav class="navbar navbar-expand-lg bg-primary-subtle border border-primary-subtle shadow rounded p-2">
+            <div class="container-fluid d-flex flex-column flex-sm-row gap-4">
+                <a class="navbar-brand" href="/">
+                    <img class="img-fluid" width="100" height="100"
+                        data-th-src="@{https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b674371-0178-47a7-bf86-e9960c61f200/d9qd9sk-765d8a44-c12f-4186-bfb2-6887a2ced4df.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdiNjc0MzcxLTAxNzgtNDdhNy1iZjg2LWU5OTYwYzYxZjIwMFwvZDlxZDlzay03NjVkOGE0NC1jMTJmLTQxODYtYmZiMi02ODg3YTJjZWQ0ZGYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.EBocdMmYakuEk3St49MMahWepFe0f2V4QgGrSRJ3vU8}"
+                        alt="Logo Facultad de Ciencias Agrarias">
+                </a>
+                <h4 class="mb-0 text-wrap">Facultad de Ciencias Agrarias</h4>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                data-th-href="@{https://www.fca.unju.edu.ar/institucional/historia/}">Acerca de</a>
+                        </li>
+                        <!-- Students -->
+                        <li>
+                            <a class="nav-link" data-th-href="@{/student/list}">Estudiantes</a>
+                        </li>
+                        <!-- Careers -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                                role="button"
+                                href="#"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Carreras
+                            </a>
+                            <ul class="dropdown-menu bg-success-subtle">
+                                <li>
+                                    <a class="dropdown-item"
+                                        data-th-href="@{/career/list}">
+                                        Lista de carreras
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        data-th-href="@{https://www.fca.unju.edu.ar/oferta-academica/pregrado/}">
+                                        Pregrado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        data-th-href="@{https://www.fca.unju.edu.ar/oferta-academica/grado/}">
+                                        Grado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        data-th-href="@{https://www.fca.unju.edu.ar/oferta-academica/posgrado/}">
+                                        PosGrado
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Subjects -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                data-th-href="@{/subject/list}">Materias</a>
+                        </li>
+                        <!-- Teachers -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                data-th-href="@{/teacher/list}">Docentes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                data-th-href="@{https://www.fca.unju.edu.ar/extension/noticias/}">Noticias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                data-th-href="@{https://www.fca.unju.edu.ar/institucional/contacto/}">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</th-block>

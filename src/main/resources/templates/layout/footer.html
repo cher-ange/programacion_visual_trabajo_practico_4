@@ -1,0 +1,77 @@
+<!-- Footer -->
+<th-block data-th-fragment="footer">
+    <div class="p-2">
+        <footer class="bg-primary-subtle border border-primary-subtle shadow rounded p-2 m-0">
+            <div class="row m-0">
+                <!-- Contact information -->
+                <div class="col-sm-12 col-md-6 p-3 d-flex flex-column row-gap-2">
+                    <div class="p-2 bg-success-subtle border border-success-subtle rounded">
+                        <h5 class="mb-0">Información de contacto</h5>
+                    </div>
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action list-group-item-success">
+                            <div class="d-flex align-items-baseline justify-content-between column-gap-2">
+                                <h6 class="mb-0 fw-bold">Dirección</h6>
+                                <small>DTA, Juan Bautista Alberdi N.º 47, Y4600 San Salvador de Jujuy, Jujuy</small>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-success">
+                            <div class="d-flex align-items-baseline justify-content-between column-gap-2">
+                                <h6 class="mb-0 fw-bold">Teléfono</h6>
+                                <small>(0388) 586-0088</small>
+                            </div>
+                        </a>
+                        <a href="mailto:administracion@fca.unju.edu.ar"
+                            class="list-group-item list-group-item-action list-group-item-success">
+                            <div class="d-flex align-items-baseline justify-content-between column-gap-2">
+                                <h6 class="mb-0 fw-bold">Correo eléctronico</h6>
+                                <small>administracion@fca.unju.edu.ar</small>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <!-- Social media links -->
+                <div class="col-4 col-md-2 p-3 d-flex flex-column gap-2 text-center">
+                    <div class="p-2 bg-success-subtle border border-success-subtle rounded">
+                        <h5 class="mb-0">Redes sociales</h5>
+                    </div>
+                    <ul class="list-group">
+                        <a data-th-href="@{https://x.com/fca_unju/}"
+                            class="list-group-item list-group-item-action list-group-item-success">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a data-th-href="@{https://www.facebook.com/FCAUNJu.Arg}"
+                            class="list-group-item list-group-item-action list-group-item-success">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a data-th-href="@{https://www.instagram.com/fca_unju/}"
+                            class="list-group-item list-group-item-action list-group-item-success">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a data-th-href="@{https://www.youtube.com/c/FacultaddeCienciasAgrariasUNJujuy}"
+                            class="list-group-item list-group-item-action list-group-item-success">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </ul>
+                </div>
+                <!-- Copyright -->
+                <div class="col-8 col-md-4 p-3 d-flex flex-column row-gap-2">
+                    <div class="p-2 bg-success-subtle border border-success-subtle rounded">
+                        <h5 class="mb-0">Derechos de autor</h5>
+                    </div>
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action list-group-item-success">
+                            <div class="d-flex flex-column justify-content-between column-gap-2">
+                                <h6 class="mb-0 fw-bold"><span class="pe-1">&copy;</span>Gutierrez Angel Gonzalo
+                                </h6>
+                                <small>2024 - Jujuy - Argentina</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <th-block data-th-replace="~{layout/common :: script}"></th-block>
+</th-block>

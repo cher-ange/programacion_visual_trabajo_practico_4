@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <th-block data-th-replace="~{layout/common :: head (title='Administrar Materia')}"></th-block>
+<body>
+    <!-- Header -->
+    <th-block data-th-replace="~{layout/header :: header}"></th-block>
+
+    <!-- Nav -->
+    <th-block data-th-replace="~{layout/nav :: nav}"></th-block>
+    
+    <!-- Main -->
+    <div class="p-2">
+        <div class="row mx-0">
+            
+            <!-- Header -->
+            <div class="col-12
+                        bg-body-tertiary
+                        border border-bottom-0
+                        rounded rounded-bottom-0
+                        p-2">
+                <h2 class="text-center
+                           mb-0"
+                    data-th-text="${allowEditing} ? 'Modificar materia' : 'Agregar materia'">
+                </h2>
+            </div>
+
+            <!-- Add/Modify Subject -->
+            <div class="col
+                        bg-light-subtle
+                        border
+                        rounded rounded-top-0
+                        p-2">
+
+                <!-- Form -->
+                <form method="post"
+                      data-th-action="@{${allowEditing} ? '/subject/modify' : '/subject/save'}"
+                      data-th-object="${subjectSubmitted}">
+                    <div class="row mx-0 g-2">
+
+                        <!-- Code -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="code">Código</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                                <input type="text" name="code" id="code"
+                                       data-th-class="${allowEditing} ? 'form-control bg-body-secondary' : 'form-control'"
+                                       data-th-field="*{code}"
+                                       data-th-readonly="${allowEditing}">
+                            </div>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="name">Nombre</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-body-text"></i></span>
+                                <input class="form-control" type="text" name="name" id="name"
+                                       data-th-field="*{name}">
+                            </div>
+                        </div>
+
+                        <!-- Course -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="course">Curso</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-body-text"></i></span>
+                                <input class="form-control" type="text" name="course" id="course"
+                                       data-th-field="*{course}">
+                            </div>
+                        </div>
+
+                        <!-- Duration -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="duration">Duración<small class="form-text ps-1">(años)</small></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-hash"></i></span>
+                                <input class="form-control" type="number" name="duration" id="duration"
+                                       data-th-field="*{duration}">
+                            </div>
+                        </div>
+
+                        <!-- Attendance type -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="attendance-type">Modalidad</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-type"></i></span>
+                                <select class="form-select"
+                                        id="attendance-type"
+                                        data-th-field="*{attendanceType}">
+                                    <option data-th-each="attendanceType : ${listOfAttendanceTypes}"
+                                            data-th-text="${attendanceType.getValue()}"
+                                            data-th-value="${attendanceType}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Teachers -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="teacher">Docente</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-type"></i></span>
+                                <select class="form-select"
+                                        id="teacher"
+                                        data-th-field="*{teacher.file}">
+                                    <option data-th-each="t : ${listOfTeachers}"
+                                            data-th-text="${t.name}"
+                                            data-th-value="${t.file}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Careers -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-label" for="career">Carrera</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-type"></i></span>
+                                <select class="form-select"
+                                        id="career"
+                                        data-th-field="*{career.code}">
+                                    <option data-th-each="c : ${listOfCareers}"
+                                            data-th-text="${c.name}"
+                                            data-th-value="${c.code}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- State -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <label class="form-check-label" for="state" hidden>Estado</label>
+                            <input type="hidden" name="state" id="state"
+                                    class="form-check-input"
+                                    data-th-field="*{state}">
+                        </div>
+
+                        <!-- Submit-Cancel buttons -->
+                        <div class="col-12 d-flex justify-content-start column-gap-2 mt-3">
+                            <button class="btn btn-light border border-secondary-subtle text-primary shadow" type="submit"
+                                    data-th-text="${allowEditing} ? 'Modificar' : 'Agregar'">>
+                            </button>
+                            <a class="btn btn-light border border-secondary-subtle shadow" role="button"
+                                data-th-href="@{'/subject/list'}">
+                                Volver
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <th-block data-th-replace="~{layout/footer :: footer}"></th-block>
+</body>
+</html>
