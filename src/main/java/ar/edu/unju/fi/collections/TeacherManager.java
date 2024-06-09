@@ -3,10 +3,12 @@ package ar.edu.unju.fi.collections;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-
 import ar.edu.unju.fi.model.Teacher;
 
+/**
+ * @author Gutierrez Angel Gonzalo
+ * @version 1.0
+ */
 public class TeacherManager {
 
     private static final List<Teacher> teachers = new ArrayList<>();
@@ -47,8 +49,8 @@ public class TeacherManager {
     }
 
     public static List<Teacher> getAll() {
-        // return teachers.stream().filter(t -> t.getState().equals(true)).toList();
-        return teachers;
+        return teachers.stream().filter(t -> t.getState().equals(true)).toList();
+        // return teachers;
     }
 
     public static Optional<Teacher> search(String file) {

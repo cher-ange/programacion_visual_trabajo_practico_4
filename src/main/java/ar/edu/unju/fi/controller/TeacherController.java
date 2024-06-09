@@ -16,7 +16,6 @@ import ar.edu.unju.fi.model.Teacher;
 @Controller
 @RequestMapping(path = "/teacher")
 public class TeacherController {
-    
     private final Teacher teacher;
 
     public TeacherController(Teacher teacher) {

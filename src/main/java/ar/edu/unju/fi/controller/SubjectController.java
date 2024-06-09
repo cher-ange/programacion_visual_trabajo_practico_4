@@ -25,7 +25,6 @@ import ar.edu.unju.fi.model.Subject;
 @Controller
 @RequestMapping(path = "/subject")
 public class SubjectController {
-    
     private final Subject subject;
 
     public SubjectController(Subject subject) {

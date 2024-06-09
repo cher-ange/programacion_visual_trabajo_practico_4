@@ -20,7 +20,6 @@ import ar.edu.unju.fi.model.Career;
 @Controller
 @RequestMapping(path = "/career")
 public class CareerController {
-    
     private final Career career;
 
     public CareerController(Career career) {

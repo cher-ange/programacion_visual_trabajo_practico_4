@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Optional;
 import ar.edu.unju.fi.model.Career;
 
+/**
+ * @author Gutierrez Angel Gonzalo
+ * @version 1.0
+ */
 public class CareerManager {
 
     private static final List<Career> careers = new ArrayList<>();
@@ -37,8 +41,8 @@ public class CareerManager {
     }
 
     public static List<Career> getAll() {    
-        // return careers.stream().filter(c -> c.getState().equals(true)).toList();
-        return careers;
+        return careers.stream().filter(c -> c.getState().equals(true)).toList();
+        // return careers;
     }
 
     public static Optional<Career> search(String code) {

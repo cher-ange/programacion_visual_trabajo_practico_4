@@ -4,10 +4,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-
 import ar.edu.unju.fi.model.Student;
-
+/**
+ * @author Gutierrez Angel Gonzalo
+ * @version 1.0
+ */
 public class StudentManager {
 
     private static final List<Student> students = new ArrayList<>();
@@ -63,8 +64,8 @@ public class StudentManager {
     }
     
     public static List<Student> getAll() {    
-        // return students.stream().filter(student -> student.getState().equals(true)).toList();
-        return students;
+        return students.stream().filter(student -> student.getState().equals(true)).toList();
+        // return students;
     }
 
     public static Optional<Student> search(String identification) {

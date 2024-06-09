@@ -3,13 +3,15 @@ package ar.edu.unju.fi.collections;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-
 import ar.edu.unju.fi.model.AttendanceType;
 import ar.edu.unju.fi.model.Career;
 import ar.edu.unju.fi.model.Subject;
 import ar.edu.unju.fi.model.Teacher;
 
+/**
+ * @author Gutierrez Angel Gonzalo
+ * @version 1.0
+ */
 public class SubjectManager {
 
     private static final List<Subject> subjects = new ArrayList<>();
@@ -78,8 +80,8 @@ public class SubjectManager {
     }
 
     public static List<Subject> getAll() {
-        // return subjects.stream().filter(subject -> subject.getState().equals(true)).toList();
-        return subjects;
+        return subjects.stream().filter(subject -> subject.getState().equals(true)).toList();
+        // return subjects;
     }
 
     public static Optional<Subject> search(String code) {

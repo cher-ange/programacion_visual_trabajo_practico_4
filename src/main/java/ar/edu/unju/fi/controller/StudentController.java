@@ -16,7 +16,6 @@ import ar.edu.unju.fi.model.Student;
 @Controller
 @RequestMapping(path = "/student")
 public class StudentController {
-
     private final Student student;
 
     public StudentController(Student student) {
